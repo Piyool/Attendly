@@ -94,5 +94,13 @@ Alur pelaporan dan visualisasi statistik kehadiran untuk Guru Mata Pelajaran:
 - **Detail Kehadiran Kelas (`/kelas/[classId]`):** Halaman breakdown kehadiran tingkat siswa per kelas dengan filter status (Semua, Perlu Perhatian, Kritis, Kehadiran Sempurna) dan pencarian siswa. Konteks mata pelajaran dipertahankan melalui URL parameter `subject_id`.
 - **Integrasi API:** Menggunakan endpoint `/reports/subject-attendance` dan `/reports/classes/{class_id}/attendance`.
 
+## End-to-End Frontend API Integration (KOM-25)
+
+Penyelesaian seluruh integrasi antarmuka frontend Attendly dengan backend API berbasis OpenAPI 3.1:
+- **Unified API Client:** Client HTTP tunggal dengan injeksi otomatis Bearer JWT access token dan penanganan refresh token otomatis saat access token kadaluarsa.
+- **Role-Based Access Control (RBAC):** Navigasi, proteksi rute, dan batasan aksi dinamis sesuai peran `SUPER_ADMIN`, `TEACHER`, dan `HOMEROOM_TEACHER`.
+- **Zero Mock Data:** Seluruh halaman (Master Data Guru, Siswa, Kelas, Mapel, Jadwal, Tahun Ajaran, Presensi Guru, Dashboard Admin & Wali Kelas, Audit & Ekspor) terhubung ke API nyata dengan state handling komprehensif (loading skeletons, empty states, actionable error retry, dan feedback toast).
+
+
 
 
