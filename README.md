@@ -70,3 +70,12 @@ make dev
 Migration `000007` creates an academic period for the current Asia/Jakarta semester and preserves existing teaching assignments. The optional `apps/api/db/seeds/kom13.sql` can be rerun to add the example 2026/2027 period without duplicating it. Academic-year management endpoints belong to KOM-10.
 
 Super Admin can create, update, and deactivate teaching assignments and recurring schedules under `/api/v1/teaching-assignments` and `/api/v1/schedules`. Teachers and homeroom teachers can read only their own records. `/api/v1/schedules/today` uses the Asia/Jakarta calendar date. Deactivating an assignment also deactivates its schedules; existing attendance sessions retain their recorded teacher, class, subject, and time.
+
+## Homeroom Teacher Dashboard (KOM-18)
+
+Dashboard khusus Wali Kelas (`/dashboard` dengan role `HOMEROOM_TEACHER` atau tab *Rekap Kelas Wali*) untuk memantau kehadiran siswa di kelas binaan secara real-time.
+- **Ringkasan Kelas:** Total siswa, tingkat kehadiran (attendance rate %), jumlah siswa hadir, sakit, izin, dan tanpa keterangan (alpa).
+- **Pemantauan & Filter:** Tab filter siswa berstatus normal, perhatian (< 85% kehadiran atau terdapat alpa), dan izin/sakit, dilengkapi pencarian berdasarkan nama dan NIS.
+- **Drill-down Siswa:** Modal detail presensi individual siswa dengan rincian breakdown kehadiran berdasarkan mata pelajaran.
+- **Integrasi API:** Menggunakan endpoint `/teachers/me/homeroom-dashboard`, `/reports/homeroom/{class_id}`, dan `/students/{student_id}/attendance-summary`.
+
