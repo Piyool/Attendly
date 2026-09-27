@@ -79,3 +79,12 @@ Dashboard khusus Wali Kelas (`/dashboard` dengan role `HOMEROOM_TEACHER` atau ta
 - **Drill-down Siswa:** Modal detail presensi individual siswa dengan rincian breakdown kehadiran berdasarkan mata pelajaran.
 - **Integrasi API:** Menggunakan endpoint `/teachers/me/homeroom-dashboard`, `/reports/homeroom/{class_id}`, dan `/students/{student_id}/attendance-summary`.
 
+## Attendance Management & Audit Logs (KOM-21)
+
+Alat Super Admin untuk memonitor, meninjau, dan mengelola seluruh riwayat presensi dan audit aktivitas sistem:
+- **Attendance Management (`/absensi`):** Filter sesi berdasarkan tanggal, kelas, mata pelajaran, guru, dan status (draft/submitted). Dilengkapi modal peninjauan detail sesi beserta daftar catatan presensi per siswa, serta fungsi reopen sesi presensi terkunci dengan validasi alasan (*reason*).
+- **Audit Logs (`/audit`):** Log aktivitas sistem dengan filter entitas (`ATTENDANCE_SESSION`, `STUDENT`, `TEACHER`, dsb.), jenis aksi (`CREATE`, `UPDATE`, `SUBMIT`, `REOPEN`, dsb.), rentang tanggal, dan pencarian teks.
+- **Export Laporan:** Modal ekspor riwayat absensi multi-format (CSV, XLSX, PDF) dengan *job polling* otomatis dan tautan unduhan langsung.
+- **Integrasi API:** Terhubung dengan `/attendance-sessions`, `/attendance-sessions/{id}`, `/audit-logs`, dan `/exports/attendance`.
+
+
