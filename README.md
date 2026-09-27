@@ -63,6 +63,7 @@ make dev
 | `make db-down` | Stop infrastructure containers |
 | `make migrate-up` | Execute PostgreSQL schema migrations |
 | `make migrate-down` | Rollback PostgreSQL schema migrations |
+| `make seed` | Seed database with comprehensive realistic test data |
 | `make sqlc` | Generate type-safe Go database queries |
 
 ## Teacher assignments and class schedules (KOM-13)

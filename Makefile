@@ -1,4 +1,4 @@
-.PHONY: init dev build test lint clean db-up db-down docker-up docker-down migrate-up migrate-down sqlc swagger
+.PHONY: init dev build test lint clean db-up db-down docker-up docker-down migrate-up migrate-down seed sqlc swagger
 
 init:
 	pnpm install
@@ -33,6 +33,9 @@ migrate-up:
 
 migrate-down:
 	cd apps/api && go run cmd/migrate/main.go down
+
+seed:
+	cd apps/api && go run cmd/seed/main.go
 
 sqlc:
 	cd apps/api && sqlc generate
