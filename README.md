@@ -87,4 +87,12 @@ Alat Super Admin untuk memonitor, meninjau, dan mengelola seluruh riwayat presen
 - **Export Laporan:** Modal ekspor riwayat absensi multi-format (CSV, XLSX, PDF) dengan *job polling* otomatis dan tautan unduhan langsung.
 - **Integrasi API:** Terhubung dengan `/attendance-sessions`, `/attendance-sessions/{id}`, `/audit-logs`, dan `/exports/attendance`.
 
+## Subject Attendance Statistics & Class Detail (KOM-23)
+
+Alur pelaporan dan visualisasi statistik kehadiran untuk Guru Mata Pelajaran:
+- **Statistik Mata Pelajaran (`TeacherMapelStatistics`):** Ringkasan tingkat kehadiran keseluruhan mata pelajaran, pemilih mata pelajaran yang diampu, serta daftar kelas dengan metrik kehadiran dan progress bar interaktif.
+- **Detail Kehadiran Kelas (`/kelas/[classId]`):** Halaman breakdown kehadiran tingkat siswa per kelas dengan filter status (Semua, Perlu Perhatian, Kritis, Kehadiran Sempurna) dan pencarian siswa. Konteks mata pelajaran dipertahankan melalui URL parameter `subject_id`.
+- **Integrasi API:** Menggunakan endpoint `/reports/subject-attendance` dan `/reports/classes/{class_id}/attendance`.
+
+
 
